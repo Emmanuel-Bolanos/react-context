@@ -8,16 +8,16 @@ class UserCard extends Component {
   }
   render() {
     const { avatar, biography, name } = this.props.user;
+    const theme = this.props.theme;
     return (
-      // TODO STYLE -- use theme prop
       <React.Fragment>
-        <div>
-          <h3> {name} </h3>
-          <img src={avatar} alt='user avatar'/>
-          <p> {biography} </p>
+        <div className={`${theme}-UserCard`}>
+          <h3 className='userName'> {name} </h3>
+          <img className='avatar' src={avatar} alt='user avatar'/>
+          <p className='bio'> {biography} </p>
           {
             this.context.isLoggedIn
-            ? <button onClick={this.handleClick}> Delete User </button>
+            ? <button className={`${theme}-button`} onClick={this.handleClick}> Delete User </button>
             : ''
           }
         </div>

@@ -7,7 +7,7 @@ body {
   justify-content: center;
   text-align: center;
   box-sizing: border-box;
-  width: 100vw;
+  width: 100%;
   margin: 0;
   padding: 0;
 }
@@ -17,7 +17,7 @@ div.day-header-container, div.night-header-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100vw;
+  width: 100%;
 }
 
 .day-title, .night-title {
@@ -44,7 +44,9 @@ div.day-header-container, div.night-header-container {
   border: 0;
   box-shadow: 2px 2px 3px black;
   transition: filter 1s ease;
-  align-self: flex-end;
+}
+
+div.day-header-container .day-button, div.night-header-container .night-button {
   position: fixed;
   top: 10px;
   right: 10px;
@@ -52,6 +54,7 @@ div.day-header-container, div.night-header-container {
 
 .day-button:hover, .night-button:hover {
   cursor: pointer;
+  filter: brightness(125%);
 }
 
 .day-button {
@@ -59,17 +62,9 @@ div.day-header-container, div.night-header-container {
   background-color: #ffd700;
 }
 
-.day-button:hover {
-  filter: brightness(75%);
-}
-
 .night-button {
   color: #b4afb3;
   background-color: #39443b;
-}
-
-.night-button:hover {
-  filter: brightness(150%);
 }
 
 /* Login */
@@ -97,9 +92,9 @@ div.day-header-container, div.night-header-container {
   color: white;
 }
 
-.day-currentUserCard img, .night-currentUserCard img {
+.avatar {
   border-radius: 50%;
-  width: 20%;
+  width: 30%;
 }
 
 .day-NoUserInfoAccess, .night-NoUserInfoAccess {
@@ -124,6 +119,13 @@ Form > * {
   padding: 1rem;  
   width: 50%;
   box-shadow: 2px 2px 3px black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.day-LoginForm > *, .night-LoginForm > * {
+  max-width: 60%;
 }
 
 .day-LoginForm {
@@ -157,4 +159,67 @@ Form > * {
   color: white;
 }
 
+/* Users List */
+.day-UserContainer, .night-UserContainer {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
+.day-UserContainer {
+  color:	black;
+}
+
+.night-UserContainer {
+  color:	white;
+}
+
+.day-UserCard, .night-UserCard {
+  margin: 2rem 1rem;
+  padding: 1rem;
+  border-radius: 1rem;
+  box-shadow: 0 2px 0 black;
+  display: grid;
+  grid-template-areas: 
+  " userName userName userName"
+  " avatar bio bio"
+  " . . delete";
+}
+
+@media only screen and (max-width: 600px) {
+  .day-UserCard, .night-UserCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.day-UserCard {
+  background-color:	#f15050;
+}
+
+.night-UserCard {
+  background-color: #443942;
+}
+
+.userName {
+  grid-area: userName;
+}
+
+.day-UserCard .avatar, .night-UserCard .avatar {
+  grid-area: avatar;
+  width: 80%;
+}
+
+.bio {
+  grid-area: bio;
+  text-align: justify;
+}
+
+.day-button, .night-button {
+  grid-area: delete;
+}

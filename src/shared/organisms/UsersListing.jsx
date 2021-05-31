@@ -3,7 +3,7 @@ import { UserContextConsumer } from '../context/UserContext';
 import { ThemeContextConsumer } from '../context/ThemeContext';
 import UserCard from '../molecules/UserCard.jsx';
 
-class Body extends Component {
+class UsersListing extends Component {
   render() {
     return (
       <ThemeContextConsumer>
@@ -12,18 +12,19 @@ class Body extends Component {
             <UserContextConsumer>
               {
                 ({users, handleDelete}) => (
-                  // TODO STYLE
-                  <div className={`${theme}-UserContainer`}>
-                    <h2> Users List </h2>
-                    {users.map((user) => (
-                      <UserCard 
-                        key={user.id} 
-                        user={user} 
-                        theme={theme} 
-                        handleDelete={handleDelete}
-                      />
-                    ))};
-                  </div>
+                  users.length > 0
+                    ? <div className={`${theme}-UserContainer`}>
+                        <h2> Users List </h2>
+                        {users.map((user) => (
+                          <UserCard 
+                            key={user.id} 
+                            user={user} 
+                            theme={theme} 
+                            handleDelete={handleDelete}
+                          />
+                        ))}
+                      </div>
+                    : ''
                 )
               }
             </UserContextConsumer>
@@ -34,4 +35,4 @@ class Body extends Component {
   }
 };
 
-export default Body;
+export default UsersListing;
