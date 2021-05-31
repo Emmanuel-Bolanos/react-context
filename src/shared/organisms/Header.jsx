@@ -9,7 +9,7 @@ class Header extends Component {
         {
           ({theme, toggleTheme}) => (
             <div className={`${theme}-header-container`}>
-              <h1 className={`${theme}-title`}> Users List </h1>
+              <h1 className={`${theme}-title`}> React Context Demo </h1>
               <Button 
                 text='Toogle theme'
                 toggleTheme={toggleTheme}

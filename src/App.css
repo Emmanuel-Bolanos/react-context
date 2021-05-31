@@ -25,7 +25,6 @@ div.day-header-container, div.night-header-container {
   width: 100%;
   margin: 0;
   box-shadow: 1px 1px 2px black;
-  margin-bottom: 2rem;
 }
 
 .day-title {
@@ -38,7 +37,7 @@ div.day-header-container, div.night-header-container {
   background-color: #39443b;
 }
 
-Button {
+.day-button, .night-button {
   padding: 0.5rem;
   margin: 0 0.5rem;
   border-radius: 1rem;
@@ -46,15 +45,18 @@ Button {
   box-shadow: 2px 2px 3px black;
   transition: filter 1s ease;
   align-self: flex-end;
+  position: fixed;
+  top: 10px;
+  right: 10px;
 }
 
-Button:hover {
+.day-button:hover, .night-button:hover {
   cursor: pointer;
 }
 
 .day-button {
   color: black;
-  background-color: #fff2ac;
+  background-color: #ffd700;
 }
 
 .day-button:hover {
@@ -63,7 +65,7 @@ Button:hover {
 
 .night-button {
   color: #b4afb3;
-  background-color: #313b33fd;
+  background-color: #39443b;
 }
 
 .night-button:hover {
@@ -136,18 +138,22 @@ Form > * {
 .day-logout, .night-logout {
   align-self: center;
   margin-bottom: 2rem;
-  position: absolute;
-  border-radius: 0;
+  padding: 0.5rem;
   box-shadow: 0 2px 0 black;
+  border: 0;
+}
+
+.day-logout:hover, .night-logout:hover {
+  cursor: pointer;
 }
 
 .day-logout {
-  background-color: #ee7676;
+  background-color: #e77f7f;
   color: black;
 }
 
 .night-logout {
-  background-color: #3d333b;
+  background-color: #6f4947;
   color: white;
 }
 

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
-const { Provider, Consumer } = React.createContext();
+const LoginContext = React.createContext();
+const { Provider, Consumer } = LoginContext;
 
 class LoginContextProvider extends Component {
   state = {
@@ -32,4 +33,4 @@ class LoginContextProvider extends Component {
   }
 };
 
-export { LoginContextProvider, Consumer as LoginContextConsumer };
+export { LoginContext, LoginContextProvider, Consumer as LoginContextConsumer };
